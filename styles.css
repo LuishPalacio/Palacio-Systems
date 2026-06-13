@@ -328,6 +328,32 @@ a {
   font-size: 1.05rem;
 }
 
+.quick-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+}
+
+.quick-list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.quick-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -348,6 +374,38 @@ a {
     background 180ms ease;
 }
 
+.metric-icon,
+.card-icon,
+.proof-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(38, 152, 216, 0.18);
+  border-radius: 8px;
+  background: rgba(191, 232, 255, 0.24);
+  color: var(--baby-blue-deep);
+}
+
+.metric-icon svg,
+.card-icon svg,
+.proof-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.proof-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 0;
+}
+
 .metrics strong {
   display: block;
   color: var(--dark);
@@ -355,9 +413,15 @@ a {
   line-height: 1.1;
 }
 
-.metrics span {
+.metrics div > span:not(.metric-icon) {
   display: block;
   margin-top: 10px;
+  color: var(--muted);
+}
+
+.section-intro {
+  max-width: 520px;
+  margin: 12px 0 0;
   color: var(--muted);
 }
 
@@ -380,6 +444,8 @@ a {
 }
 
 .service-item {
+  display: grid;
+  align-content: start;
   min-height: 220px;
   padding: 28px;
   border: 1px solid rgba(191, 232, 255, 0.64);
@@ -391,6 +457,16 @@ a {
     box-shadow 180ms ease;
 }
 
+.service-item:nth-child(2) .card-icon {
+  background: rgba(35, 182, 132, 0.12);
+  color: #0d7a59;
+}
+
+.service-item:nth-child(3) .card-icon {
+  background: rgba(38, 152, 216, 0.12);
+  color: var(--baby-blue-deep);
+}
+
 .service-item h3,
 .project-card h3 {
   margin: 0 0 12px;
@@ -398,6 +474,33 @@ a {
   font-size: 1.35rem;
   line-height: 1.18;
   overflow-wrap: anywhere;
+}
+
+.service-points {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  list-style: none;
+}
+
+.service-points li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.service-points li::before {
+  content: "";
+  position: absolute;
+  top: 0.76em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--baby-blue-deep);
+  transform: translateY(-50%);
 }
 
 .package-grid {
@@ -549,7 +652,7 @@ a {
 .process-steps article {
   display: grid;
   align-content: start;
-  min-height: 224px;
+  min-height: 210px;
   padding: 22px;
   border: 1px solid rgba(191, 232, 255, 0.18);
   border-radius: var(--radius);
@@ -584,7 +687,7 @@ a {
 
 @media (min-width: 901px) and (max-width: 1100px) {
   .process-steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -833,7 +936,7 @@ a {
   overflow-wrap: anywhere;
 }
 
-.proof-items span {
+.proof-items article > span:not(.proof-icon) {
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.55;
@@ -1041,14 +1144,13 @@ a {
   z-index: 35;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 0 18px 0 10px;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
+  border-radius: 50%;
   background: #23b684;
-  color: #03110d;
-  font-weight: 900;
+  color: #ffffff;
   text-decoration: none;
   box-shadow: 0 18px 38px rgba(5, 7, 10, 0.24);
   transition:
@@ -1057,16 +1159,10 @@ a {
     box-shadow 160ms ease;
 }
 
-.floating-whatsapp span {
-  display: inline-grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  color: #0d7a59;
-  font-size: 0.78rem;
-  line-height: 1;
+.floating-whatsapp svg {
+  width: 31px;
+  height: 31px;
+  fill: currentColor;
 }
 
 .floating-whatsapp:hover,
@@ -1329,16 +1425,7 @@ a {
   .floating-whatsapp {
     right: 14px;
     bottom: 14px;
-    min-height: 48px;
-    padding: 0 14px 0 8px;
-  }
-
-  .floating-whatsapp span {
-    width: 32px;
-    height: 32px;
-  }
-
-  .floating-whatsapp strong {
-    font-size: 0.92rem;
+    width: 54px;
+    height: 54px;
   }
 }
