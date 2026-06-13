@@ -643,6 +643,45 @@ a {
   color: var(--muted);
 }
 
+.about-me-section {
+  padding: 76px 0;
+  background: var(--surface);
+}
+
+.about-me-grid {
+  max-width: 900px;
+}
+
+.about-me-content {
+  max-width: 760px;
+}
+
+.about-me-content p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.about-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(38, 152, 216, 0.18);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--dark);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
